@@ -37,23 +37,24 @@
           <section id="login">
             <h2><span>Have account?</span> Log In!</h2>
 
-            <form>
+            <form id="loginForm">
               <div class="form-control">
                 <label for="loginEmail">Email</label>
-                <input type="text" id="loginEmail" />
+                <input type="email" id="loginEmail" required />
               </div>
-
+              <!-- Email -->
               <div class="form-control">
                 <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" />
+                <input type="password" id="loginPassword" required />
               </div>
-
+              <!-- Password -->
               <div class="form-control">
                 <input type="submit" value="Log In" class="btn-primary" />
               </div>
             </form>
             <p id="loginMessage" class="hidden"></p>
           </section>
+          <!-- Login form ends -->
           <section id="signup">
             <h2><span>New user?</span> Sign Up!</h2>
 
@@ -62,7 +63,7 @@
                 <label for="signUpName">Name</label>
                 <input type="text" id="signUpName" required />
               </div>
-
+              <!-- Name -->
               <div class="form-control">
                 <label for="signUpSurname">Surname</label>
                 <input type="text" id="signUpSurname" required />

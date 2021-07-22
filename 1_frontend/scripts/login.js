@@ -1,14 +1,26 @@
 // Imports
-import { REGISTER_USER_URI } from '../modules/endpoints/endpoints.js';
+import { LOGIN, REGISTER_USER_URI } from '../modules/endpoints/endpoints.js';
 
 // --- LOGIN ---
 //--------------
 
 // Variables
 // -- DOM emelemts
+const logInFormElement = document.querySelector('#logInForm');
+const loginMessageElement = document.querySelector('#loginMessage');
 
 // Funtions
+const loginUser = (e) => {
+  e.preventDefault();
 
+  return fetch(LOGIN_USER_URI, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  });
+};
 // Events
 
 // --- SIGNUP ---
