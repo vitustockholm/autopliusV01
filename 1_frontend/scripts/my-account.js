@@ -10,7 +10,7 @@ const userInfoContainerElement = document.querySelector('#user-info-container');
 //Functions
 //--get user data
 const getUser = () => {
-  let userFromLocalStorageId = JSON.parse.localStorage.getItem('user');
+  let userFromLocalStorageId = JSON.parse(localStorage.getItem('user'));
 
   if (userFromLocalStorageId) {
     return fetch(GET_USER_URI + userFromLocalStorageId)
