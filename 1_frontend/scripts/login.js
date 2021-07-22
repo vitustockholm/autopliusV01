@@ -1,17 +1,25 @@
 // Imports
-import { LOGIN, REGISTER_USER_URI } from '../modules/endpoints/endpoints.js';
+import {
+  LOGIN_USER_URI,
+  REGISTER_USER_URI,
+} from '../modules/endpoints/endpoints.js';
 
 // --- LOGIN ---
 //--------------
 
 // Variables
 // -- DOM emelemts
-const logInFormElement = document.querySelector('#logInForm');
+const logInFormElement = document.querySelector('#loginForm');
 const loginMessageElement = document.querySelector('#loginMessage');
 
 // Funtions
 const loginUser = (e) => {
   e.preventDefault();
+
+  const user = {
+    email: e.target.loginEmail.value,
+    password: e.target.loginPassword.value,
+  };
 
   return fetch(LOGIN_USER_URI, {
     method: 'POST',
@@ -19,10 +27,30 @@ const loginUser = (e) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(user),
-  });
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+
+      if (data.loginStatus === 'failed') {
+        e.target.loginEmail.value = '';
+        e.target.loginPassword.value = '';
+
+        e.target.loginEmail.focus();
+
+        loginMessageElement.classList.remove('hidden');
+        loginMessageElement.innerText = data.message;
+      } else if ((data.loginStatus = 'success')) {
+        localStorage.setItem('user', JSON.stringify(data.userId));
+
+        location.href =
+          'http://127.0.0.1:5500/1_frontend/pages/my-account.html';
+      }
+    });
 };
 // Events
 
+logInFormElement.addEventListener('submit', loginUser);
 // --- SIGNUP ---
 //---------------
 
@@ -72,7 +100,7 @@ const signUpUser = (e) => {
         signUpMessageElement.classList.remove('hidden');
         signUpMessageElement.innerText = data.message;
       } else if (data.registrationStatus === 'success') {
-        localStorage.setItem('user', JSON.stringify(data.user));
+        localStorage.setItem('user', JSON.stringify(data.userId));
 
         location.href =
           'http://127.0.0.1:5500/1_frontend/pages/my-account.html';

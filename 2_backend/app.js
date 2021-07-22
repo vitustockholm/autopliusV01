@@ -57,10 +57,10 @@ app.post('/api/users/signup', (req, res) => {
       const newUser = new UserAndCars(user);
 
       newUser.save().then((result) => {
-        let { _id, name, surname, email, cars } = result;
+        let { _id } = result;
         res.json({
           registrationStatus: 'success',
-          user: { _id, name, surname, email, cars },
+          userId: { _id },
         });
       });
     }
@@ -69,6 +69,27 @@ app.post('/api/users/signup', (req, res) => {
 
 app.post('/api/users/login', (req, res) => {
   let user = req.body;
+
+  UserAndCars.find().then((result) => {
+    console.log(result);
+    let userFounded = result.find(
+      (userFromDB) =>
+        userFromDB.email === user.email && userFromDB.password === user.password
+    );
+    if (userFounded) {
+      let { _id } = userFounded;
+
+      res.json({
+        loginStatus: 'success',
+        userId: _id,
+      });
+    } else {
+      res.status(401).json({
+        loginStatus: 'Failed',
+        message: 'Given email or password is incorrect',
+      });
+    }
+  });
 });
 // REST API
 /*

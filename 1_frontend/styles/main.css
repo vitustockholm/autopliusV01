@@ -188,7 +188,8 @@ main .container #signup form input[type='submit'] {
   color: #fff;
 }
 
-main .container #signup #signUpMessage {
+main .container #signup #signUpMessage,
+main .container #login #loginMessage {
   margin-top: 15px;
   padding: 5px 10px;
   border-left: 5px solid red;
