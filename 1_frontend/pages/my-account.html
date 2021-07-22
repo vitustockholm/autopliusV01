@@ -8,8 +8,11 @@
     <!-- CUSTOM JS -->
     <!-- -components- -->
     <script defer src="../components/nav.js"></script>
+    <!-- logic -->
+    <script defer src="../scripts/my-account.js" type="module"></script>
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="../styles/main.css" />
+
     <!-- Font awesome -->
     <link
       rel="stylesheet"
@@ -27,7 +30,19 @@
       </div>
     </header>
 
-    <main><div class="container">Account page</div></main>
+    <main>
+      <div class="container">
+        <section>
+          <h1>Hellow, <span id="user-name"></span></h1>
+        </section>
+        <section id="userInfo">
+          <div id="userInfo-container"></div>
+        </section>
+        <section id="userCars">
+          <div id="user-cars-container"></div>
+        </section>
+      </div>
+    </main>
 
     <footer><div class="container"></div></footer>
   </body>

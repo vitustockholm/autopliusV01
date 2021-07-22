@@ -37,6 +37,15 @@ app.get('/api/cars', (req, res) => {
   UserAndCars.find({}).then((data) => res.json(data));
 });
 
+//GET: get single user based on id
+app.get('/api/users/:id', (req, res) => {
+  let userId = req.params.id;
+
+  UserAndCars.findById(userId).then((result) => {
+    res.json(result);
+  });
+});
+
 // POST: register new user
 app.post('/api/users/signup', (req, res) => {
   let user = req.body;
@@ -67,6 +76,7 @@ app.post('/api/users/signup', (req, res) => {
   });
 });
 
+//POST : Log in existing user
 app.post('/api/users/login', (req, res) => {
   let user = req.body;
 
