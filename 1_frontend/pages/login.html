@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Place To Sell Your Car</title>
+    <!-- CUSTOM JS -->
+    <!-- -components- -->
+    <script defer src="../components/nav.js"></script>
+    <!-- logic -->
+    <script defer src="../scripts/login.js" type="module"></script>
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="../styles/main.css" />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div>Cars Adverts</div>
+        <nav><!-- created using nav.js --></nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section><h1>Sign up/ Log In</h1></section>
+
+        <div class="login-signup-container">
+          <section id="login">
+            <h2><span>Have account?</span> Log In!</h2>
+
+            <form>
+              <div class="form-control">
+                <label for="loginEmail">Email</label>
+                <input type="text" id="loginEmail" />
+              </div>
+
+              <div class="form-control">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" />
+              </div>
+
+              <div class="form-control">
+                <input type="submit" value="Log In" class="btn-primary" />
+              </div>
+            </form>
+            <p id="loginMessage" class="hidden"></p>
+          </section>
+          <section id="signup">
+            <h2><span>New user?</span> Sign Up!</h2>
+
+            <form id="signUpForm">
+              <div class="form-control">
+                <label for="signUpName">Name</label>
+                <input type="text" id="signUpName" required />
+              </div>
+
+              <div class="form-control">
+                <label for="signUpSurname">Surname</label>
+                <input type="text" id="signUpSurname" required />
+              </div>
+
+              <div class="form-control">
+                <label for="signUpEmail">Email</label>
+                <input type="text" id="signUpEmail" required />
+              </div>
+
+              <div class="form-control">
+                <label for="signUpPassword">Password</label>
+                <input type="password" id="signUpPassword" required />
+              </div>
+
+              <div class="form-control">
+                <label for="signUpConfirmPassword">Confirm Password</label>
+                <input type="password" id="signUpConfirmPassword" required />
+              </div>
+
+              <div class="form-control">
+                <input type="submit" value="Sign Up" class="btn-primary" />
+              </div>
+            </form>
+            <p id="signUpMessage" class="hidden"></p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer><div class="container"></div></footer>
+  </body>
+</html>
