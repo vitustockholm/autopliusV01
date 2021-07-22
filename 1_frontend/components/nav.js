@@ -22,7 +22,7 @@ const showNav = () => {
     a2.href = location.href.includes('pages')
       ? 'my-account.html'
       : './pages/my-account.html';
-    a2.innerText = 'My Account';
+    a2.innerHTML = 'My Account <i class="far fa-user"></i>';
   } else {
     a2.href = location.href.includes('pages')
       ? 'login.html'
