@@ -41,7 +41,7 @@ span {
 
 .btn-primary {
   display: inline-block;
-  margin-top: 10px;
+
   border: 0;
   padding: 5px 10px;
   border-radius: 3px;
@@ -215,9 +215,103 @@ main .container #user #user__info {
 main .container #user #user__info h3 {
   padding: 7px 0;
 }
-main .container #user #user__cars {
-  margin-top: 35px;
+
+main .container #user #user__info button {
+  margin-top: 15px;
 }
+main .container #user #user__cars {
+  margin-top: 50px;
+  width: 100%;
+}
+
+main .container #user #user__cars #user__cars-list {
+  width: 100%;
+}
+
+main .container #user #user__cars #user__cars-list table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+main .container #user #user__cars #user__cars-list table thead th {
+  background-color: var(--primary-color);
+  color: var(--text-light-color);
+  padding: 10px 0px;
+  border-bottom: 1px solid #ddd;
+}
+main .container #user #user__cars #user__cars-list table tbody tr td {
+  padding: 10px 0;
+}
+
+main
+  .container
+  #user
+  #user__cars
+  #user__cars-list
+  table
+  tbody
+  tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+main .container #user #user__cars #user__cars-list p {
+  margin-top: 15px;
+  padding: 5px 10px;
+  border-left: 5px solid green;
+  border-radius: 3px 0px 0px 3px;
+  background-color: #f8f8f8;
+}
+
+main .container #user #user__cars #user__cars-add-new {
+  margin-top: 50px;
+  padding: 30px;
+  box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1),
+    0 0 0 1px rgba(10, 10, 10, 0.02);
+}
+
+main .container #user #user__cars #user__cars-add-new form {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex: wrap;
+}
+
+main .container #user #user__cars #user__cars-add-new form .form-control {
+  width: calc(100% / 2 - 30px);
+  display: flex;
+  flex-direction: column;
+}
+main .container #user #user__cars #user__cars-add-new form .form-control label {
+  margin-top: 10px;
+  font-size: 1.2em;
+}
+main .container #user #user__cars #user__cars-add-new form .form-control input {
+  padding: 5px 7px;
+  font-size: 1em;
+  color: #555;
+}
+
+main
+  .container
+  #user
+  #user__cars
+  #user__cars-add-new
+  form
+  .form-control
+  input[type='submit'] {
+  width: fit-content;
+  margin-top: 15px;
+  color: #fff;
+}
+
+main .container #user #user__cars #user__cars-add-new p {
+  margin-top: 15px;
+  padding: 5px 10px;
+
+  border-left: 5px solid green;
+  
+}
+
 /* Tablet*/
 @media screen and (min-width: 768px) {
   /* -- main */
@@ -244,4 +338,20 @@ main .container #user #user__cars {
   main .container .login-signup-container #signup {
     margin-top: 0;
   }
+}
+/* my account.html */
+main .container #user {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+main .container #user #user__info {
+  width: 25%;
+}
+
+main .container #user #user__cars {
+  width: 70%;
+  margin-top: 0;
 }

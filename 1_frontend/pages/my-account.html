@@ -39,7 +39,38 @@
           <div id="user__info"></div>
           <div id="user__cars">
             <div id="user__cars-list"></div>
-            <div id="user__cars-add-new"></div>
+            <div id="user__cars-add-new">
+              <h6>Have car for sale?</h6>
+              <h2>Enter Information!</h2>
+
+              <form id="addNewCarForm">
+                <!-- carMake -->
+                <div class="form-control">
+                  <label for="carMake">Make</label>
+                  <input type="text" id="carMake" required />
+                </div>
+                <!-- carModel -->
+                <div class="form-control">
+                  <label for="carModel">Model</label>
+                  <input type="text" id="carModel" required />
+                </div>
+                <!-- carYear -->
+                <div class="form-control">
+                  <label for="carYear">Year</label>
+                  <input type="text" id="carYear" required />
+                </div>
+                <!-- carPrice -->
+                <div class="form-control">
+                  <label for="carPrice">Price</label>
+                  <input type="text" id="carPrice" required />
+                </div>
+                <!-- Password -->
+                <div class="form-control">
+                  <input type="submit" value="Add Car" class="btn-primary" />
+                </div>
+              </form>
+              <p id="addCarForSaleMessage" class="hidden"></p>
+            </div>
           </div>
         </section>
       </div>

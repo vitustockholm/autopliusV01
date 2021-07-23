@@ -18,8 +18,13 @@ mongoose
       cars: [
         { make: 'Audi', model: 'A6', year: 2020, price: 40000 },
         { make: 'Audi', model: 'A5', year: 2017, price: 35000 },
+        { make: 'Audi', model: 'A3', year: 2020, price: 40000 },
+        { make: 'Audi', model: 'A5', year: 2019, price: 35000 },
+        { make: 'Audi', model: 'A6', year: 2020, price: 25000 },
+        { make: 'Audi', model: 'A5', year: 2011, price: 500 },
       ],
     };
+    UserAndCars.deleteMany().then();
 
     UserAndCars.insertMany(user);
 

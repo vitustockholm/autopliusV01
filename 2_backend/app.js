@@ -20,6 +20,7 @@ mongoose
   .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then((response) => {
     console.log(`Connected to MongoDB`.blue.underline.bold);
@@ -101,11 +102,49 @@ app.post('/api/users/login', (req, res) => {
     }
   });
 });
+
+//PUT: Delete single car based on id
+app.put('/api/cars/delete/:id', async (req, res) => {
+  let { userId, carId } = req.body;
+
+  let userFromDB = await UserAndCars.findById(userId);
+
+  let carToDeleteIndex = userFromDB.cars.findIndex(
+    (car) => '' + car._id === '' + carId
+  );
+  userFromDB.cars.splice(carToDeleteIndex, 1);
+
+  UserAndCars.findByIdAndUpdate(userId, userFromDB).then((result) =>
+    res.json(userFromDB)
+  );
+});
+
+//PUT : ADD single car to user based on his id
+
+app.put('/api/cars/add/:id', async (req, res) => {
+  console.log(req.body);
+  let userId = req.params.id;
+  let newCar = req.body;
+
+  let userFromDB = await UserAndCars.findById(userId);
+  userFromDB.cars.push(newCar);
+
+  UserAndCars.findByIdAndUpdate(userId, userFromDB).then((result) =>
+    res.json(userFromDB)
+  );
+});
+
+//
+
+//
 // REST API
 /*
 GET:   /api/cars'     ||GET all cars
       
 
-POST:  /api/users/signup     | REGISTER new user
-       /api/users/login      | LOG in existing user  
+POST:  /api/users/signup           | REGISTER new user
+       /api/users/login            | LOG in existing user  
+
+PUT:   /api/cars/delete/:id        | DELETE single car based on id
+       /api/cars/add/:id           | ADD single car to user based on his id
 */
